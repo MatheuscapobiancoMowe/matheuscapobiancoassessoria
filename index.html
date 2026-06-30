@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matheus Capobianco — Assessoria de Investimentos</title>
+<meta name="description" content="Proteja e cresça o que você construiu, com transparência, planejamento e olho no olho. Assessoria de investimentos vinculada à XP através da Mowe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0908;
+    --black-soft:#161310;
+    --cream:#ece7df;
+    --cream-card:#e3ddd2;
+    --orange:#f03c16;
+    --orange-deep:#d6330f;
+    --ink:#1a1714;
+    --muted:#6f6a63;
+    --muted-light:#a8a29a;
+    --line:rgba(255,255,255,.10);
+    --line-dark:rgba(0,0,0,.10);
+    --radius:18px;
+    --maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--black);
+    color:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3,.display{font-family:'Archivo Black','Archivo',sans-serif;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+  .eyebrow{font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;color:var(--orange)}
+  .accent{color:var(--orange)}
+  a{color:inherit}
+
+  /* ---------- NAV ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,9,8,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:1rem;letter-spacing:-.01em}
+  .brand small{display:block;font-family:'Inter';font-weight:500;text-transform:none;letter-spacing:.04em;font-size:.62rem;color:var(--muted-light);margin-top:1px}
+  .nav-cta{background:var(--orange);color:#fff;padding:9px 18px;border-radius:100px;font-weight:600;font-size:.82rem;text-decoration:none;transition:.2s;white-space:nowrap}
+  .nav-cta:hover{background:var(--orange-deep)}
+  @media(max-width:640px){.nav-cta{padding:8px 14px;font-size:.76rem}}
+
+  /* ---------- HERO ---------- */
+  header.hero{position:relative;padding:140px 0 90px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .hero-copy .eyebrow{margin-bottom:18px;display:block}
+  .hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);margin-bottom:24px}
+  .hero h1 .line2{color:var(--orange)}
+  .hero .sub{font-size:1.12rem;color:var(--cream);opacity:.86;max-width:30ch;margin-bottom:14px;font-weight:400;line-height:1.5}
+  .hero .vinc{font-size:.86rem;color:var(--muted-light);margin-bottom:34px}
+  .hero-photo{position:relative}
+  .hero-photo img{width:100%;border-radius:var(--radius);display:block;filter:saturate(1.02)}
+  .hero-photo::after{content:"";position:absolute;inset:0;border-radius:var(--radius);box-shadow:inset 0 -80px 60px -30px rgba(10,9,8,.55)}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;border:none;padding:16px 30px;border-radius:100px;font-family:'Inter';font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer;transition:.2s;box-shadow:0 8px 30px -8px rgba(240,60,22,.5)}
+  .btn:hover{background:var(--orange-deep);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;border:1.5px solid var(--line);box-shadow:none;color:var(--cream)}
+  .btn.ghost:hover{border-color:var(--orange);background:transparent}
+  .btn-micro{display:block;font-size:.82rem;color:var(--muted-light);margin-top:12px;max-width:34ch}
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .hero-photo{order:-1;max-width:380px}
+    .hero .sub{max-width:none}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:84px 0}
+  .sec-dark{background:var(--black)}
+  .sec-black{background:#060504}
+  .sec-cream{background:var(--cream);color:var(--ink)}
+  .sec-cream .eyebrow{color:var(--orange-deep)}
+  .sec-cream h2{color:var(--ink)}
+  .sec-orange{background:var(--orange);color:#fff}
+  .sec-orange .eyebrow{color:rgba(255,255,255,.85)}
+  .sec-head{margin-bottom:44px}
+  .sec-head .eyebrow{display:block;margin-bottom:14px}
+  .sec-head h2{font-size:clamp(1.9rem,4.6vw,3rem);max-width:18ch}
+  .sec-head h2 .accent{color:var(--orange)}
+  .sec-cream .sec-head h2 .accent{color:var(--orange-deep)}
+
+  /* ---------- DOR ---------- */
+  .pain-list{display:grid;gap:14px;max-width:760px;margin-bottom:30px}
+  .pain{display:flex;gap:16px;align-items:flex-start;background:var(--black-soft);border:1px solid var(--line);border-radius:14px;padding:18px 22px;font-size:1.02rem;color:var(--cream)}
+  .pain .q{color:var(--orange);font-family:'Archivo Black';font-size:1.3rem;line-height:1;flex-shrink:0}
+  .pain-close{font-size:1.05rem;color:var(--muted-light);max-width:60ch}
+  .pain-close strong{color:var(--cream)}
+
+  /* ---------- SOLUÇÃO / ABERTURA ---------- */
+  .lead{font-size:1.18rem;line-height:1.65;max-width:62ch;color:var(--ink)}
+  .lead p{margin-bottom:18px}
+  .lead strong{font-weight:700}
+
+  /* ---------- BENEFÍCIOS ---------- */
+  .benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .benefit{background:var(--black-soft);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .benefit .ico{font-size:1.5rem;margin-bottom:12px;display:block}
+  .benefit h3{font-family:'Archivo',sans-serif;font-weight:700;text-transform:none;font-size:1.08rem;letter-spacing:0;margin-bottom:6px;line-height:1.25}
+  .benefit p{font-size:.95rem;color:var(--muted-light)}
+  @media(max-width:680px){.benefits{grid-template-columns:1fr}}
+
+  /* ---------- QUEM SOU EU (sobre) ---------- */
+  .about-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+  .stat{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .sec-cream .stat{background:#fff;border-color:var(--line-dark)}
+  .stat .num{font-family:'Archivo Black';font-size:2.1rem;color:var(--orange);line-height:1}
+  .sec-cream .stat .num{color:var(--orange-deep)}
+  .stat .lbl{font-size:.82rem;color:var(--muted);margin-top:8px;line-height:1.3}
+  .sec-cream .stat .lbl{color:var(--muted)}
+  .values{display:grid;gap:12px;margin-top:30px;max-width:640px}
+  .value-row{display:flex;gap:14px;align-items:flex-start;font-size:1.02rem}
+  .value-row .vi{color:var(--orange-deep);font-size:1.1rem;flex-shrink:0;width:22px}
+  .sec-cream .value-row{color:var(--ink)}
+  @media(max-width:680px){.about-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* expectativas (4 pilares) */
+  .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line-dark);margin-top:8px}
+  .pillar{padding:26px 24px;border-bottom:1px solid var(--line-dark);display:flex;gap:18px}
+  .pillar:nth-child(odd){border-right:1px solid var(--line-dark)}
+  .pillar .pn{font-family:'Archivo Black';font-size:1.6rem;color:var(--orange-deep);line-height:1}
+  .pillar h3{font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;font-size:1rem;letter-spacing:0;margin-bottom:4px;color:var(--ink)}
+  .pillar p{font-size:.92rem;color:var(--muted)}
+  @media(max-width:680px){.pillars{grid-template-columns:1fr}.pillar:nth-child(odd){border-right:none}}
+
+  /* ---------- SIMULADORES ---------- */
+  .sims-intro{max-width:60ch;color:#fff;opacity:.92;font-size:1.08rem;margin-bottom:40px}
+  .sim-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .sim{background:#fff;color:var(--ink);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column}
+  .sim .sim-tag{font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.66rem;color:var(--orange-deep);margin-bottom:10px}
+  .sim h3{font-family:'Archivo',sans-serif;font-weight:700;text-transform:none;letter-spacing:0;font-size:1.16rem;line-height:1.2;margin-bottom:6px;color:var(--ink)}
+  .sim .sim-desc{font-size:.9rem;color:var(--muted);margin-bottom:18px}
+  .field{margin-bottom:13px}
+  .field label{display:block;font-size:.78rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+  .field input,.field select{width:100%;padding:11px 13px;border:1.5px solid #d8d2c7;border-radius:10px;font-family:'Inter';font-size:.92rem;background:#faf8f4;color:var(--ink);transition:.15s}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--orange);background:#fff}
+  .sim .btn{width:100%;justify-content:center;margin-top:6px;font-size:.94rem;padding:14px}
+  .sim-result{margin-top:18px;padding:18px;border-radius:12px;background:linear-gradient(160deg,#fff5f1,#ffe9e1);border:1px solid #ffd2c4;display:none}
+  .sim-result.show{display:block;animation:fade .4s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .sim-result .rlabel{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--orange-deep);font-weight:700;margin-bottom:4px}
+  .sim-result .rval{font-family:'Archivo Black';font-size:1.9rem;color:var(--ink);line-height:1;margin-bottom:8px}
+  .sim-result .rnote{font-size:.84rem;color:var(--muted);line-height:1.45}
+  .sim-disc{font-size:.7rem;color:var(--muted-light);margin-top:12px;line-height:1.4}
+  @media(max-width:860px){.sim-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+
+  /* ---------- OFERTA ---------- */
+  .offer-box{background:var(--black-soft);border:1px solid var(--line);border-radius:var(--radius);padding:40px;max-width:760px}
+  .offer-list{display:grid;gap:13px;margin-bottom:28px}
+  .offer-item{display:flex;gap:13px;align-items:flex-start;font-size:1.02rem}
+  .offer-item .ck{color:var(--orange);font-weight:700;flex-shrink:0}
+  .anchor{background:rgba(240,60,22,.08);border:1px solid rgba(240,60,22,.25);border-radius:12px;padding:18px 20px;font-size:.98rem;color:var(--cream)}
+  .anchor strong{color:var(--orange)}
+
+  /* ---------- OBJEÇÕES ---------- */
+  .obj{display:grid;gap:14px;max-width:820px}
+  .obj details{background:#fff;border:1px solid var(--line-dark);border-radius:14px;overflow:hidden}
+  .obj summary{padding:20px 24px;cursor:pointer;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.02rem;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .obj summary::-webkit-details-marker{display:none}
+  .obj summary::after{content:"+";font-family:'Archivo Black';font-size:1.4rem;color:var(--orange-deep);transition:.2s;flex-shrink:0}
+  .obj details[open] summary::after{transform:rotate(45deg)}
+  .obj .ans{padding:0 24px 22px;color:var(--muted);font-size:.98rem;line-height:1.6}
+
+  /* ---------- GARANTIA ---------- */
+  .guarantee{background:var(--black-soft);border:1px solid var(--orange);border-radius:var(--radius);padding:38px;max-width:720px;margin:0 auto;text-align:center;position:relative}
+  .guarantee .seal{font-size:2.4rem;margin-bottom:14px}
+  .guarantee h3{font-size:1.5rem;margin-bottom:14px}
+  .guarantee p{color:var(--cream);opacity:.88;font-size:1.05rem;max-width:54ch;margin:0 auto}
+
+  /* ---------- URGÊNCIA ---------- */
+  .urgency{text-align:center;max-width:60ch;margin:0 auto}
+  .urgency p{font-size:1.15rem;color:#fff;line-height:1.55}
+  .urgency strong{font-family:'Archivo Black';text-transform:uppercase}
+
+  /* ---------- FAQ ---------- */
+  .faq{display:grid;gap:12px;max-width:820px}
+  .faq details{border-bottom:1px solid var(--line);padding:6px 0}
+  .faq summary{padding:16px 4px;cursor:pointer;font-weight:600;font-size:1.04rem;color:var(--cream);list-style:none;display:flex;justify-content:space-between;gap:12px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--orange);font-size:1.3rem;transition:.2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq .ans{padding:0 4px 16px;color:var(--muted-light);font-size:.98rem}
+
+  /* ---------- CTA FINAL ---------- */
+  .final{text-align:center;padding:96px 0}
+  .final h2{font-size:clamp(2rem,5vw,3.4rem);max-width:16ch;margin:0 auto 22px}
+  .final p{font-size:1.15rem;color:var(--cream);opacity:.86;max-width:48ch;margin:0 auto 34px}
+  .ps{max-width:60ch;margin:50px auto 0;padding-top:30px;border-top:1px solid var(--line);font-size:.98rem;color:var(--muted-light);line-height:1.6;text-align:left}
+  .ps strong{color:var(--cream)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#060504;padding:48px 0 40px;border-top:1px solid var(--line)}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap}
+  .foot-brand .brand{font-size:1.1rem}
+  .foot-logo{height:26px;opacity:.9;margin-top:14px;filter:invert(1) brightness(1.6)}
+  .disc{font-size:.72rem;color:var(--muted);line-height:1.6;max-width:62ch;margin-top:26px}
+
+  /* ---------- MODAL ---------- */
+  .modal-bg{position:fixed;inset:0;background:rgba(6,5,4,.78);backdrop-filter:blur(6px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal-bg.show{display:flex;animation:fade .25s ease}
+  .modal{background:var(--cream);color:var(--ink);border-radius:20px;max-width:440px;width:100%;padding:34px;position:relative;animation:pop .3s cubic-bezier(.2,.9,.3,1.2)}
+  @keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+  .modal .close{position:absolute;top:16px;right:18px;background:none;border:none;font-size:1.6rem;color:var(--muted);cursor:pointer;line-height:1}
+  .modal .eyebrow{color:var(--orange-deep);display:block;margin-bottom:10px}
+  .modal h3{font-size:1.5rem;color:var(--ink);margin-bottom:8px;line-height:1.1}
+  .modal .msub{font-size:.95rem;color:var(--muted);margin-bottom:22px}
+  .modal .field input{background:#fff}
+  .modal .btn{width:100%;justify-content:center;margin-top:8px}
+  .modal-success{text-align:center;display:none}
+  .modal-success.show{display:block}
+  .modal-success .seal{font-size:3rem;margin-bottom:12px}
+  .modal-success h3{margin-bottom:10px}
+  .modal-success p{color:var(--muted);font-size:.98rem}
+  .lgpd{font-size:.72rem;color:var(--muted);margin-top:14px;text-align:center;line-height:1.5}
+
+  :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <div class="brand">Matheus Capobianco<small>Assessor de Investimentos</small></div>
+    <a href="#contato" class="nav-cta">Falar comigo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero sec-dark">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Assessoria de Investimentos</span>
+      <h1>Proteger e crescer<br>o que você<br><span class="line2">construiu.</span></h1>
+      <p class="sub">Com transparência, planejamento e olho no olho. Um plano feito pra <em>você</em> — não pro banco.</p>
+      <p class="vinc">Vinculado à XP Investimentos através do escritório Mowe.</p>
+      <a href="#contato" class="btn" onclick="openModal('Conversa de diagnóstico','Me conta como te encontro e eu retorno pra agendar nosso bate-papo gratuito.','Hero — diagnóstico');return false;">Quero uma conversa sem compromisso →</a>
+      <span class="btn-micro">Bate-papo de diagnóstico gratuito. Sem promessa de milagre, sem enrolação — só clareza sobre o seu próximo passo.</span>
+    </div>
+    <div class="hero-photo">
+      <img src="matheus.png" alt="Matheus Capobianco, assessor de investimentos">
+    </div>
+  </div>
+</header>
+
+<!-- DOR -->
+<section class="sec-black">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Talvez você se reconheça</span>
+      <h2>Se alguma dessas frases é <span class="accent">sua</span>, a gente precisa conversar.</h2>
+    </div>
+    <div class="pain-list">
+      <div class="pain"><span class="q">“</span><span>Meu dinheiro está rendendo pouco e eu nem sei direito <strong>quanto</strong> ou <strong>por quê</strong>.</span></div>
+      <div class="pain"><span class="q">“</span><span>Não faço ideia de onde investir — e fico paralisado com medo de errar.</span></div>
+      <div class="pain"><span class="q">“</span><span>Não confio no meu banco. Sinto que me empurram o que é bom pra <strong>eles</strong>.</span></div>
+      <div class="pain"><span class="q">“</span><span>Tenho receio do que vem por aí na economia e quero proteger o que construí.</span></div>
+    </div>
+    <p class="pain-close">Você não está sendo paranoico. Está sendo responsável. <strong>O problema nunca foi você</strong> — foi a falta de alguém que te olhasse de verdade.</p>
+  </div>
+</section>
+
+<!-- ABERTURA / PROPOSTA DE VALOR -->
+<section class="sec-cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Por que eu existo nessa história</span>
+      <h2>Assessoria de verdade é <span class="accent">relação</span>, não venda única.</h2>
+    </div>
+    <div class="lead">
+      <p>Você já sentiu que seu dinheiro podia estar trabalhando melhor — mas não sabe por onde começar, em quem confiar, ou se está sendo bem orientado.</p>
+      <p>A verdade incômoda é que muita gente Brasil afora recebe uma assessoria mal feita: produto empurrado, contato que some depois da venda, zero planejamento de verdade.</p>
+      <p>Sou <strong>Matheus Capobianco</strong>, assessor de investimentos, e conduzo cada cliente com transparência total, um plano patrimonial sob medida e uma relação construída sobre valores — porque cuidar do seu patrimônio é cuidar do futuro da sua família.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÃO + BENEFÍCIOS -->
+<section class="sec-dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O que muda quando você caminha comigo</span>
+      <h2>Clareza onde antes havia <span class="accent">confusão</span>.</h2>
+    </div>
+    <div class="benefits">
+      <div class="benefit"><span class="ico">🧭</span><h3>Clareza total</h3><p>Você passa a entender exatamente onde seu dinheiro está e por quê.</p></div>
+      <div class="benefit"><span class="ico">🛡️</span><h3>Patrimônio protegido</h3><p>Estrutura pensada pra atravessar diferentes cenários, inclusive os incertos.</p></div>
+      <div class="benefit"><span class="ico">📈</span><h3>Crescimento com propósito</h3><p>Seus investimentos alinhados aos <em>seus</em> objetivos, não a metas de venda.</p></div>
+      <div class="benefit"><span class="ico">🤝</span><h3>Transparência</h3><p>Você sabe o que paga, o que ganha e por que cada escolha foi feita.</p></div>
+      <div class="benefit"><span class="ico">👨‍👩‍👧</span><h3>Tranquilidade pra família</h3><p>Planejamento e sucessão pensados além de você.</p></div>
+      <div class="benefit"><span class="ico">📞</span><h3>Um assessor presente</h3><p>Você não vira número. Tem nome, tem acesso, tem acompanhamento.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULADORES -->
+<section class="sec-orange" id="simuladores">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Faça as contas em 30 segundos</span>
+      <h2 style="color:#fff">Veja o que está em jogo com o seu dinheiro.</h2>
+    </div>
+    <p class="sims-intro">Três simuladores rápidos pra te dar um ponto de partida. São estimativas simples — o plano de verdade a gente constrói junto, olhando a sua realidade.</p>
+    <div class="sim-grid">
+
+      <!-- SIM 1: rendimento parado vs investido -->
+      <div class="sim">
+        <span class="sim-tag">Dinheiro parado</span>
+        <h3>Quanto você deixa na mesa?</h3>
+        <p class="sim-desc">Compare deixar o valor parado x rendendo ao longo do tempo.</p>
+        <div class="field"><label for="s1v">Valor disponível (R$)</label><input type="text" id="s1v" inputmode="numeric" placeholder="100.000"></div>
+        <div class="field"><label for="s1a">Por quanto tempo?</label>
+          <select id="s1a"><option value="1">1 ano</option><option value="3">3 anos</option><option value="5" selected>5 anos</option><option value="10">10 anos</option></select>
+        </div>
+        <button class="btn" onclick="sim1()">Ver resultado →</button>
+        <div class="sim-result" id="r1">
+          <div class="rlabel">Diferença estimada</div>
+          <div class="rval" id="r1val">—</div>
+          <div class="rnote" id="r1note"></div>
+        </div>
+        <p class="sim-disc">Estimativa ilustrativa comparando dinheiro parado (sem rendimento) a uma referência de 10% a.a. Não é promessa de rentabilidade.</p>
+      </div>
+
+      <!-- SIM 2: renda passiva mensal -->
+      <div class="sim">
+        <span class="sim-tag">Renda passiva</span>
+        <h3>Que renda mensal seu patrimônio gera?</h3>
+        <p class="sim-desc">Uma noção de quanto seu patrimônio pode distribuir por mês.</p>
+        <div class="field"><label for="s2v">Patrimônio investido (R$)</label><input type="text" id="s2v" inputmode="numeric" placeholder="500.000"></div>
+        <div class="field"><label for="s2p">Perfil</label>
+          <select id="s2p"><option value="0.6">Conservador</option><option value="0.8" selected>Moderado</option><option value="1.0">Arrojado</option></select>
+        </div>
+        <button class="btn" onclick="sim2()">Ver resultado →</button>
+        <div class="sim-result" id="r2">
+          <div class="rlabel">Renda mensal estimada</div>
+          <div class="rval" id="r2val">—</div>
+          <div class="rnote" id="r2note"></div>
+        </div>
+        <p class="sim-disc">Estimativa ilustrativa com base em faixas de rendimento por perfil. Valores reais dependem dos produtos e do cenário.</p>
+      </div>
+
+      <!-- SIM 3: objetivo futuro / aporte -->
+      <div class="sim">
+        <span class="sim-tag">Meta de futuro</span>
+        <h3>Quanto guardar pra chegar lá?</h3>
+        <p class="sim-desc">Descubra o aporte mensal pra alcançar um objetivo.</p>
+        <div class="field"><label for="s3m">Objetivo (R$)</label><input type="text" id="s3m" inputmode="numeric" placeholder="1.000.000"></div>
+        <div class="field"><label for="s3a">Em quantos anos?</label>
+          <select id="s3a"><option value="5">5 anos</option><option value="10" selected>10 anos</option><option value="15">15 anos</option><option value="20">20 anos</option></select>
+        </div>
+        <button class="btn" onclick="sim3()">Ver resultado →</button>
+        <div class="sim-result" id="r3">
+          <div class="rlabel">Aporte mensal estimado</div>
+          <div class="rval" id="r3val">—</div>
+          <div class="rnote" id="r3note"></div>
+        </div>
+        <p class="sim-disc">Estimativa ilustrativa considerando referência de 10% a.a. Não constitui recomendação de investimento.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUEM SOU EU -->
+<section class="sec-cream" id="sobre">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Quem sou eu</span>
+      <h2>Base sólida pra cuidar do <span class="accent">seu dinheiro</span>.</h2>
+    </div>
+    <p class="lead" style="max-width:60ch;margin-bottom:30px">No mercado, quem acelera demais compromete o fundamento. Eu prefiro construir patrimônio com <strong>método, paciência e clareza</strong> — sempre do seu lado. Consistência supera intensidade.</p>
+    <div class="about-grid">
+      <div class="stat"><div class="num">+6</div><div class="lbl">anos no mercado financeiro, em ciclos de alta e de queda</div></div>
+      <div class="stat"><div class="num">CEA</div><div class="lbl">Especialista em Investimentos — ANBIMA</div></div>
+      <div class="stat"><div class="num">ANCORD</div><div class="lbl">Habilitação para atuar como assessor — CVM</div></div>
+      <div class="stat"><div class="num">PUC</div><div class="lbl">Graduado em Economia + Pós em Finanças e Banking</div></div>
+    </div>
+    <div class="values">
+      <div class="value-row"><span class="vi">♥</span><span>Casado e construindo relações de longo prazo — dentro e fora do trabalho.</span></div>
+      <div class="value-row"><span class="vi">✝</span><span>Cristão — fé que guia meus valores, minhas atitudes e a forma como cuido do que é seu.</span></div>
+      <div class="value-row"><span class="vi">→</span><span>Acredito em confiança construída no tempo, não em promessas de retorno.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE ESPERAR -->
+<section class="sec-dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Como eu trabalho</span>
+      <h2>O que você pode <span class="accent">esperar de mim</span>.</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><span class="pn">01</span><div><h3>Atendimento próximo</h3><p>Conversa de gente pra gente, sem economês.</p></div></div>
+      <div class="pillar"><span class="pn">02</span><div><h3>Plano sob medida</h3><p>Estratégia de acordo com os seus objetivos.</p></div></div>
+      <div class="pillar"><span class="pn">03</span><div><h3>Transparência total</h3><p>Clareza nos riscos — sem promessa de retorno.</p></div></div>
+      <div class="pillar"><span class="pn">04</span><div><h3>Acompanhamento contínuo</h3><p>Presente também depois de investir.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="sec-black">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O que você recebe</span>
+      <h2>Tudo o que vem junto ao caminhar <span class="accent">comigo</span>.</h2>
+    </div>
+    <div class="offer-box">
+      <div class="offer-list">
+        <div class="offer-item"><span class="ck">✓</span><span>Diagnóstico patrimonial completo da sua situação atual</span></div>
+        <div class="offer-item"><span class="ck">✓</span><span>Plano de investimentos personalizado e explicado linha a linha</span></div>
+        <div class="offer-item"><span class="ck">✓</span><span>Acesso à plataforma e curadoria da XP: renda fixa, FIIs, previdência, offshore, crédito, câmbio e mais</span></div>
+        <div class="offer-item"><span class="ck">✓</span><span>Planejamento patrimonial, sucessório e de eficiência tributária</span></div>
+        <div class="offer-item"><span class="ck">✓</span><span>Acompanhamento contínuo e canal direto comigo</span></div>
+        <div class="offer-item"><span class="ck">✓</span><span>Revisões periódicas conforme sua vida e o cenário mudam</span></div>
+      </div>
+      <div class="anchor">O custo de uma assessoria <strong>bem feita</strong> é uma fração do que uma assessoria <strong>mal feita</strong> — ou a ausência dela — já custou ao seu patrimônio em rendimento perdido e oportunidades não aproveitadas.</div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJEÇÕES -->
+<section class="sec-cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Vamos ser honestos</span>
+      <h2>O que provavelmente está <span class="accent">passando pela sua cabeça</span>.</h2>
+    </div>
+    <div class="obj">
+      <details><summary>“Será que vale a pena? Já tenho meu banco.”</summary><div class="ans">Seu gerente atende centenas de clientes e responde a metas do banco. Eu atendo um número limitado de famílias e respondo a você. A diferença aparece logo nas primeiras conversas.</div></details>
+      <details><summary>“Tenho medo de não entender nada.”</summary><div class="ans">Esse é exatamente o ponto. Meu trabalho é traduzir o complexo em decisões claras. Você nunca vai assinar nada que não entenda.</div></details>
+      <details><summary>“Não tenho patrimônio ‘suficiente’.”</summary><div class="ans">Assessoria boa não é só pra quem já é rico — é pra quem leva a sério construir e proteger o que tem, em qualquer fase.</div></details>
+      <details><summary>“E se o cenário virar? Tenho medo de um colapso econômico.”</summary><div class="ans">Justamente por isso planejamento existe. Não controlo a economia — mas construo com você uma estrutura pensada pra resistir a diferentes cenários.</div></details>
+      <details><summary>“Como sei que você é confiável?”</summary><div class="ans">Sou vinculado à XP através da Mowe, com credenciais técnicas (CEA, ANCORD) e — mais importante — conduzo cada relação por valores cristãos de honestidade e cuidado. Transparência aqui é método, não discurso.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="sec-dark">
+  <div class="wrap">
+    <div class="guarantee">
+      <div class="seal">🤝</div>
+      <h3 class="display">Risco zero pra começar</h3>
+      <p>Nossa primeira conversa é um diagnóstico <strong>gratuito e sem compromisso</strong>. Você sai dela com mais clareza sobre seu patrimônio — decidindo seguir comigo ou não. Sem pressão, sem letra miúda. Se não fizer sentido pra você, não faz sentido pra mim.</p>
+    </div>
+  </div>
+</section>
+
+<!-- URGÊNCIA -->
+<section class="sec-orange">
+  <div class="wrap urgency">
+    <p>Atendo um número <strong>limitado de famílias</strong> para garantir atenção de verdade — o oposto da assessoria de balcão. As vagas de diagnóstico de cada mês são restritas por isso. Quando lotam, a próxima conversa fica para o mês seguinte.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec-black">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Perguntas frequentes</span>
+      <h2>O que mais costumam me <span class="accent">perguntar</span>.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>O que faz um assessor de investimentos?</summary><div class="ans">Eu te ajudo a entender, organizar e fazer crescer seu patrimônio com um plano sob medida, conectando você aos produtos da XP e acompanhando tudo de perto.</div></details>
+      <details><summary>Quanto custa?</summary><div class="ans">Conversamos sobre o modelo de remuneração com total transparência logo no início. Você sempre saberá exatamente o que paga e por quê.</div></details>
+      <details><summary>Você garante rentabilidade?</summary><div class="ans">Não — e desconfie de quem garante. Investimento envolve risco. O que eu garanto é planejamento sério, transparência e acompanhamento próximo.</div></details>
+      <details><summary>Meu dinheiro fica com você?</summary><div class="ans">Não. Seus recursos ficam custodiados na sua conta XP, no seu nome. Eu sou seu assessor, não seu custodiante.</div></details>
+      <details><summary>Preciso ter muito dinheiro pra começar?</summary><div class="ans">Não. Atendo diferentes perfis. O essencial é o desejo de cuidar bem do que você tem.</div></details>
+      <details><summary>Como começa?</summary><div class="ans">Você clica no botão, agendamos uma conversa de diagnóstico gratuita, e a partir daí desenhamos juntos o seu plano.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="sec-dark final" id="contato">
+  <div class="wrap">
+    <span class="eyebrow" style="display:block;margin-bottom:18px">Bora juntos</span>
+    <h2>Se faz sentido pra você, <span class="accent">vem comigo</span>.</h2>
+    <p>A diferença entre “meu dinheiro rende pouco e não sei por quê” e “tenho clareza e um plano” começa numa única conversa.</p>
+    <a href="#" class="btn" onclick="openModal('Conversa de diagnóstico gratuita','Deixa teu contato que eu retorno pra agendarmos nosso bate-papo — sem compromisso.','CTA final');return false;">Quero agendar minha conversa gratuita →</a>
+    <div class="ps">
+      <strong>P.S.</strong> — Assessoria de verdade não é sobre o próximo “investimento da moda”. É sobre alguém que olha pro seu patrimônio como se fosse responsável por ele — porque é. Com transparência, planejamento e valores que não se negociam. Se isso é o que você procura, a porta está aberta.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">Matheus Capobianco<small>Assessor de Investimentos</small></div>
+        <img src="logo-mowe.png" alt="Mowe Investimentos · XP" class="foot-logo">
+      </div>
+      <a href="#contato" class="btn ghost" onclick="openModal('Conversa de diagnóstico','Deixa teu contato que eu retorno.','Footer');return false;">Falar comigo</a>
+    </div>
+    <p class="disc">Matheus Capobianco é assessor de investimentos credenciado e atua na distribuição de produtos de investimento por conta e ordem da XP Investimentos CCTVM S.A., vinculado ao escritório Mowe Investimentos, nos termos da Resolução CVM nº 178. Esta página tem caráter meramente informativo e não constitui recomendação, oferta ou solicitação de investimento. Os simuladores apresentam estimativas ilustrativas e não representam promessa ou garantia de rentabilidade. Rentabilidade passada não garante rentabilidade futura. Todo investimento envolve riscos. Antes de investir, avalie seus objetivos e leia os documentos dos produtos.</p>
+  </div>
+</footer>
+
+<!-- MODAL DE CAPTURA -->
+<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="close" onclick="closeModal()" aria-label="Fechar">×</button>
+    <div id="modalForm">
+      <span class="eyebrow" id="mEyebrow">Falar comigo</span>
+      <h3 id="mTitle">Conversa de diagnóstico</h3>
+      <p class="msub" id="mSub">Deixa teu contato que eu retorno pra agendarmos.</p>
+      <div id="mPreview"></div>
+      <div class="field"><label for="mNome">Seu nome</label><input type="text" id="mNome" placeholder="Como posso te chamar?"></div>
+      <div class="field"><label for="mEmail">E-mail</label><input type="email" id="mEmail" placeholder="seu@email.com"></div>
+      <div class="field"><label for="mFone">WhatsApp / telefone</label><input type="tel" id="mFone" placeholder="(11) 90000-0000"></div>
+      <button class="btn" onclick="submitLead()">Quero que o Matheus entre em contato →</button>
+      <p class="lgpd">🔒 Seus dados são usados só pra esse contato. Nada de spam. (LGPD)</p>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="seal">✅</div>
+      <h3>Recebido!</h3>
+      <p>Obrigado. Em breve o Matheus entra em contato pra agendar a conversa. Enquanto isso, me siga no Instagram <strong>@matheuscapobiancoaai</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ===== util ===== */
+  const brl = n => n.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+  const num = id => {const v=document.getElementById(id).value.replace(/[^\d]/g,'');return v?parseInt(v,10):0;};
+  // máscara de milhar simples
+  document.querySelectorAll('input[inputmode="numeric"]').forEach(inp=>{
+    inp.addEventListener('input',()=>{
+      let v=inp.value.replace(/\D/g,'');
+      inp.value=v?parseInt(v,10).toLocaleString('pt-BR'):'';
+    });
+  });
+
+  const RATE=0.10; // referência anual ilustrativa
+
+  /* ===== SIMULADORES ===== */
+  function sim1(){
+    const v=num('s1v'), anos=+document.getElementById('s1a').value;
+    if(!v){shake('s1v');return;}
+    const investido=v*Math.pow(1+RATE,anos);
+    const diff=investido-v;
+    document.getElementById('r1val').textContent=brl(diff);
+    document.getElementById('r1note').textContent=`É o que ${brl(v)} pode deixar de render em ${anos} ano(s) se ficar parado, frente a uma referência de 10% a.a. Quer um plano pra isso não acontecer?`;
+    reveal('r1','Simulador · dinheiro parado',`Valor ${brl(v)} · ${anos} ano(s)`);
+  }
+  function sim2(){
+    const v=num('s2v'), tx=+document.getElementById('s2p').value;
+    if(!v){shake('s2v');return;}
+    const mensal=v*(tx/100);
+    document.getElementById('r2val').textContent=brl(mensal)+'/mês';
+    document.getElementById('r2note').textContent=`Estimativa de renda mensal que ${brl(v)} poderia distribuir nesse perfil. Dá pra estruturar isso de forma eficiente — inclusive em tributação.`;
+    reveal('r2','Simulador · renda passiva',`Patrimônio ${brl(v)}`);
+  }
+  function sim3(){
+    const meta=num('s3m'), anos=+document.getElementById('s3a').value;
+    if(!meta){shake('s3m');return;}
+    const i=RATE/12, n=anos*12;
+    const aporte=meta*i/(Math.pow(1+i,n)-1);
+    document.getElementById('r3val').textContent=brl(aporte)+'/mês';
+    document.getElementById('r3note').textContent=`Aporte mensal estimado pra chegar em ${brl(meta)} em ${anos} anos (referência 10% a.a.). Vamos montar o caminho certo pra você?`;
+    reveal('r3','Simulador · meta de futuro',`Meta ${brl(meta)} · ${anos} anos`);
+  }
+
+  function reveal(boxId,eyebrow,preview){
+    const box=document.getElementById(boxId);
+    box.classList.add('show');
+    // pequeno atraso pra pessoa ver o número, depois convidamos ao lead
+    setTimeout(()=>openModal('Quer o resultado completo + um plano?','Vi sua simulação. Deixa teu contato que eu te mando uma leitura personalizada e a gente conversa.',eyebrow,preview),900);
+  }
+  function shake(id){const el=document.getElementById(id);el.style.borderColor='#f03c16';el.focus();}
+
+  /* ===== MODAL ===== */
+  let leadOrigin='';
+  function openModal(title,sub,origin,preview){
+    document.getElementById('mTitle').textContent=title;
+    document.getElementById('mSub').textContent=sub;
+    document.getElementById('mEyebrow').textContent=origin||'Falar comigo';
+    document.getElementById('mPreview').innerHTML = preview ? `<div class="anchor" style="margin-bottom:18px;font-size:.9rem">${preview}</div>` : '';
+    leadOrigin=origin||'';
+    document.getElementById('modalForm').style.display='block';
+    document.getElementById('modalSuccess').classList.remove('show');
+    document.getElementById('modalBg').classList.add('show');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){
+    document.getElementById('modalBg').classList.remove('show');
+    document.body.style.overflow='';
+  }
+  function submitLead(){
+    const nome=document.getElementById('mNome').value.trim();
+    const email=document.getElementById('mEmail').value.trim();
+    const fone=document.getElementById('mFone').value.trim();
+    if(!nome||!email||!fone){
+      [['mNome',nome],['mEmail',email],['mFone',fone]].forEach(([id,val])=>{
+        document.getElementById(id).style.borderColor=val?'#d8d2c7':'#f03c16';
+      });
+      return;
+    }
+    /* >>> INTEGRAÇÃO: aqui você conecta MailerLite / planilha / CRM <<<
+       Os dados estão em: {nome, email, fone, origem:leadOrigin}
+       Ex.: fetch('SUA_URL_MAILERLITE_OU_APPSSCRIPT',{method:'POST',body:JSON.stringify({nome,email,fone,origem:leadOrigin})}) */
+    console.log('LEAD CAPTURADO:',{nome,email,fone,origem:leadOrigin});
+    document.getElementById('modalForm').style.display='none';
+    document.getElementById('modalSuccess').classList.add('show');
+  }
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
+</body>
+</html>
